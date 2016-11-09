@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Catalogue>
+  <Media>
+    <Name>Thriller</Name>
+    <Genre>Pop</Genre>
+    <User>kamom</User>
+    <Year>1982</Year>
+    <Artist>Michel Jackson</Artist>
+    <Album>Thriller</Album>
+    <Type>Music</Type>
+  </Media>
+  <Media>
+    <Name>Avatar</Name>
+    <Genre>Adventure</Genre>
+    <User>kamom</User>
+    <Year>2010</Year>
+    <Director>Micheal Bay</Director>
+    <LeadActor>Blue Person</LeadActor>
+    <Type>Video</Type>
+    <MediaType>Video</MediaType>
+  </Media>
+  <Media>
+    <Name>Titan Fall 2</Name>
+    <Genre>FPS</Genre>
+    <User>kamom</User>
+    <Year>2016</Year>
+    <Type>Games</Type>
+    <Platform>Console</Platform>
+    <Publisher>EA</Publisher>
+  </Media>
+  <Media>
+    <Name>Gold-Digger</Name>
+    <Genre>Hip-Hop</Genre>
+    <User>kirkd</User>
+    <Year>2008</Year>
+    <Artist>Kanye West</Artist>
+    <Album>Gold-Digger</Album>
+    <Type>Music</Type>
+  </Media>
+  <Media>
+    <Name>Destiny</Name>
+    <Genre>Adventure</Genre>
+    <User>kamom</User>
+    <Year>2014</Year>
+    <Type>Games</Type>
+    <Platform>EA</Platform>
+    <Publisher>Console</Publisher>
+  </Media>
+</Catalogue>
