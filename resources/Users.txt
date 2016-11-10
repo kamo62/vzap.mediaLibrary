@@ -1,4 +1,0 @@
-Kamogelo,Mashishi,kamom,moo,true;
-Brian,Stark,brians,1234,false;
-Kirk,De Villiers,kirkd,1234,false;
-Anna,Findlay,annaf,1234,false;
