@@ -197,7 +197,7 @@ public class FileMediaDAO
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
 			
-			//saving .xml file
+			
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File("./resources/CatalogueItems.xml"));
 
