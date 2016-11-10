@@ -1,8 +1,10 @@
 package vzap.kamo.persons;
 
+import java.io.Serializable;
+
 import vzap.kamo.exceptions.Person_Exception;
 
-public abstract class Person
+public abstract class Person implements Serializable
 {
 	private String name;
 	private String surname;

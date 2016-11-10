@@ -3,7 +3,6 @@ package vzap.kamo.daos;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
 import vzap.kamo.exceptions.Person_Exception;
 import vzap.kamo.persons.User;
 
@@ -17,12 +16,16 @@ public class FileUserDAO
 	private ArrayList<User> users;
 	private User tempUser;
 	private String path;
+	ObjectOutputStream oos;
+	ObjectInputStream ois;
+	FileInputStream fis;
+	FileOutputStream fos;
 	
 	public FileUserDAO()
 	{
 		users = new ArrayList<User>();
 		
-		this.path = "./resources/Users.txt";
+		this.path = "./resources/users.bin";
 		file = new File(path);
 	}
 	
@@ -30,44 +33,25 @@ public class FileUserDAO
 	{
 		try
 		{
-			fr = new FileReader(file);
-			br = new BufferedReader(fr);
+			//File listfile = new File("./resources/users.bin"); 
+			FileInputStream fis = new FileInputStream(file);
+			ois = new ObjectInputStream(fis);
+			//Running through list
+			System.out.println("Running through object list");
+			ArrayList<User> users;
+			users = (ArrayList<User>)ois.readObject();
+			System.out.println("users size = " + users.size());
+			ois.close();
+			fis.close();
+			return users;
 			
-			String msg;
-			
-			while((msg = br.readLine()) != null)
-			{
-				StringTokenizer str = new StringTokenizer(msg, ",");
-				while(str.hasMoreTokens())
-				{
-					String name = str.nextToken();
-					String surname  = str.nextToken();
-					String username = str.nextToken();
-					String password = str.nextToken();
-					boolean isAdmin = Boolean.parseBoolean(str.nextToken());
-					boolean isAdmin1 = true;
-					tempUser = new User(name, surname, username, password, isAdmin1);
-					users.add(tempUser);
-				}
-			}
-			fr.close();
-			br.close();
-		} catch (FileNotFoundException e)
+		} catch (Exception e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Person_Exception e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("An issue occured");
 		}
 		
-
-		return users;
+		return null;
+		
 		
 	}
 
@@ -101,19 +85,13 @@ public class FileUserDAO
 	{
 		try
 		{
+			file = new File("./resources/users.bin");
+			fos = new FileOutputStream(file);
+			oos = new ObjectOutputStream(fos);
 			
-			fw = new FileWriter(file);
-			pw = new PrintWriter(fw); //basic connection object wrapped into a printwriter object
-			
-			for (User item : user)
-			{
-				String newStringUser = item.getName() + ","+ item.getSurname() + "," + item.getUsername() +"," 
-						+ item.getPassword() + "," + item.isAdmin();
-				pw.println(newStringUser);
-			}
-			
-			pw.close();
-			fw.close();
+			oos.writeObject(user);
+			oos.close();
+			fos.close();
 			return true;
 		} catch (IOException e)
 		{
@@ -122,8 +100,6 @@ public class FileUserDAO
 			return false;
 		} //basic connection object
 		
-		
-		
 	}
 	
 	public void removeUser(ArrayList<User> newUserlist)
@@ -131,11 +107,18 @@ public class FileUserDAO
 		
 	}
 	
-	public static void main(String[] args)
-	{
+//	public static void main(String[] args)
+//	{
 //		FileUserDAO dao = new FileUserDAO();
+//		
 //		ArrayList<User> u = dao.LoadUsers();
-//		System.out.println(u.size());
-	}
+//		System.out.println("u size = " + u.size());
+//		if(u.size() < 2)
+//		{
+//			System.out.println("No items in file");
+//			return;
+//		}
+//		dao.SaveUsers(u);
+//	}
 }
 
