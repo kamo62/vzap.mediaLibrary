@@ -193,20 +193,14 @@ public class FileMediaDAO
 
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
+			//set the formatting
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+			
+			//saving .xml file
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(new File("./resources/CatalogueItems.xml"));
 
-			//Transformer transformer = TransformerFactory.newInstance().newTransformer();
-			//transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			//transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-			//initialize StreamResult with File object to save to file
-			//StreamResult result = new StreamResult(new StringWriter());
-			//DOMSource source = new DOMSource(doc);
-			//transformer.transform(source, result);
-			//String xmlString = result.getWriter().toString();
-			//System.out.println(xmlString);
 			
 			
 			transformer.transform(source, result);
