@@ -33,6 +33,7 @@ public class FileUserDAO
 				file.createNewFile();
 				users.add(new User("admin", "admin", "admin", "admin", true));
 				this.saveUsers(users);
+				System.out.println("Initial User creation complete.");
 				System.out.println("Please use username: admin and password: admin");
 			} 
 			catch (IOException | Person_Exception e)
@@ -51,10 +52,10 @@ public class FileUserDAO
 			FileInputStream fis = new FileInputStream(file);
 			ois = new ObjectInputStream(fis);
 			//Running through list
-			System.out.println("Running through object list");
+			//System.out.println("Running through object list");
 			ArrayList<User> users;
 			users = (ArrayList<User>)ois.readObject();
-			System.out.println("users size = " + users.size());
+			//System.out.println("users size = " + users.size());
 			ois.close();
 			fis.close();
 			return users;

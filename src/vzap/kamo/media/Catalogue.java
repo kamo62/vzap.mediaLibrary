@@ -48,20 +48,20 @@ public class Catalogue
 		return listMedia;
 	}
 
-	public void setCatalogueItemMedia(int listIndex, Media mediaItem)
-	{
-		this.listMedia.get(listIndex).setMediaItem(mediaItem);
-	}
-
-	public void setCatalogueItemUserName(int listIndex, String userName)
-	{
-		this.listMedia.get(listIndex).setUserName(userName);
-	}
-
-	public String getCatalogueItemUserName(int listIndex, String userName)
-	{
-		return this.listMedia.get(listIndex).getUserName();
-	}
+//	public void setCatalogueItemMedia(int listIndex, Media mediaItem)
+//	{
+//		this.listMedia.get(listIndex).setMediaItem(mediaItem);
+//	}
+//
+//	public void setCatalogueItemUserName(int listIndex, String userName)
+//	{
+//		this.listMedia.get(listIndex).setUserName(userName);
+//	}
+//
+//	public String getCatalogueItemUserName(int listIndex, String userName)
+//	{
+//		return this.listMedia.get(listIndex).getUserName();
+//	}
 
 	public Media getCatalogueItemMedia(int listIndex, String userName)
 	{

@@ -102,7 +102,7 @@ public class HomeLibrary
 	{
 		System.out.println("List of Media for " + user.getName());
 		System.out.println();
-		for (CatalogueItem item : userCatalogue.getListMedia())
+		for (CatalogueItem item : userCatalogue.getCatalogueForUser(user.getUsername()))
 		{
 			System.out.println(item.getMediaItem().toString());
 		}
