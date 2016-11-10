@@ -21,12 +21,26 @@ public class FileUserDAO
 	FileInputStream fis;
 	FileOutputStream fos;
 	
-	public FileUserDAO()
+	public FileUserDAO() 
 	{
 		users = new ArrayList<User>();
-		
 		this.path = "./resources/users.bin";
 		file = new File(path);
+		if(!file.exists())
+		{
+			try
+			{
+				file.createNewFile();
+				users.add(new User("admin", "admin", "admin", "admin", true));
+				this.saveUsers(users);
+				System.out.println("Please use username: admin and password: admin");
+			} 
+			catch (IOException | Person_Exception e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public ArrayList<User> LoadUsers()
@@ -45,7 +59,8 @@ public class FileUserDAO
 			fis.close();
 			return users;
 			
-		} catch (Exception e)
+		} 
+		catch (Exception e)
 		{
 			System.out.println("An issue occured");
 		}
@@ -81,7 +96,7 @@ public class FileUserDAO
 		
 	}
 	
-	public boolean SaveUsers(ArrayList<User> user)
+	public boolean saveUsers(ArrayList<User> user)
 	{
 		try
 		{

@@ -275,6 +275,7 @@ public class HomeLibrary
 				userList.get(userSelection).setPassword(newPassword);
 			}
 			userList.get(userSelection).setAdmin(newIsAdministrator);
+			login.modifyUser(userList);
 			System.out.println("You've updated the user details successfully");
 			printScreens();
 

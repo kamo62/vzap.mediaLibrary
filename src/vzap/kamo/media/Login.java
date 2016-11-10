@@ -15,24 +15,7 @@ public class Login
 	public Login() 
 	{
 		fileUserDao = new FileUserDAO();
-		userCatalog = fileUserDao.LoadUsers();
-//		userCatalog = new ArrayList<User>();
-//		//Demonstration purpose only. This is hard coding which is only for testing.
-//		
-//		try
-//		{
-//			userCatalog.add(new User("Kamogelo","Mashishi","kamom","moo",true));
-//			userCatalog.add(new User("Brian","Stark","brians","1234",false));
-//			userCatalog.add(new User("Kirk","De Villiers","kirkd,","1234",false));
-//			userCatalog.add(new User("Anna","Findlay","annaf","1234",false));
-//		} 
-//		catch (Person_Exception e)
-//		{
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-		
+		userCatalog = fileUserDao.LoadUsers();		
 	}
 
 	public boolean verify(String username, String password)
@@ -93,6 +76,7 @@ public class Login
 		if(!duplicateCheck)
 		{
 			userCatalog.add(newUser);
+			fileUserDao.saveUsers(userCatalog);
 		}
 		return duplicateCheck; //returns false if the value was added. Returns true if there is an issue.
 	}
@@ -100,8 +84,13 @@ public class Login
 	public void deleteUser(int userSelection)
 	{
 		userCatalog.remove(userSelection);
+		fileUserDao.saveUsers(userCatalog);
 		//this removes the item and shifts the array to the left. ie: item 4 is now item 3.
 		
 	}
 
+	public void modifyUser(ArrayList<User> list)
+	{
+		fileUserDao.saveUsers(list);
+	}
 }
